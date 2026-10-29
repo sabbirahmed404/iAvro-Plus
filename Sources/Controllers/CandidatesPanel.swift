@@ -139,9 +139,9 @@ final class CandidatesPanel {
 
     func updateCandidates(_ candidates: [String]) {
         viewModel.candidates = candidates
-        if viewModel.selectedIndex >= candidates.count {
-            viewModel.selectedIndex = 0
-        }
+        // New candidates start at the top (the controller then reselects a
+        // remembered pick); a stale index would commit the wrong word on space
+        viewModel.selectedIndex = 0
     }
 
     // MARK: - IMK Backend Methods
