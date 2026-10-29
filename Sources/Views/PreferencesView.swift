@@ -6,7 +6,7 @@ struct GeneralTab: View {
     @AppStorage("CandidatePanelType") private var candidatePanelType = 1
     @AppStorage("IncludeDictionary") private var includeDictionary = true
     @AppStorage("CommitNewLineOnEnter") private var commitNewLineOnEnter = false
-    @AppStorage("UseCustomCandidatePanel") private var useCustomCandidatePanel = false
+    @AppStorage("UseCustomCandidatePanel") private var useCustomCandidatePanel = true
 
     var body: some View {
         Form {
