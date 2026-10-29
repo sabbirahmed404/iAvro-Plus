@@ -24,7 +24,7 @@ Space commits the first suggestion.
 
 - **English words stay English.** About 40,000 common words are bundled, including chat and tech words like `readme`, `tech`, `api` and `btw`, and you can add your own.
 - **Abbreviations stay English.** Any all-caps word of two or more letters.
-- **Esc commits exactly what you typed**, for anything the lists miss. Stock iAvro throws the word away.
+- **Esc commits exactly what you typed, and remembers it.** For anything the lists miss, like a company name, press Esc once; from then on that word is offered as typed, first. Stock iAvro throws the word away.
 - **Remembers your picks.** Choose a candidate once, with the arrow keys or a number key, and it's preselected next time.
 - **Custom candidate panel by default**, with fixes: Space no longer re-commits the previous word, and the selection no longer carries over to the next keystroke.
 - **One switch** turns the English behaviour off: Preferences → General → *Keep English words in English*.
@@ -78,7 +78,7 @@ A word typed entirely in capitals now offers English first, so `OI` shows OI bef
 
 ### Adding your own English words
 
-Put one word per line in:
+For a single word, pressing Esc once is enough. To add many words at once, put one word per line in:
 
 ```
 ~/Library/Application Support/OmicronLab/Avro Keyboard/english-words.txt

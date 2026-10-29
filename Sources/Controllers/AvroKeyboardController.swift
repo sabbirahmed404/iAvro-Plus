@@ -84,7 +84,8 @@ class AvroKeyboardController: IMKInputController, @unchecked Sendable {
             // English word or abbreviation: offer it as typed
             if useDict, UserDefaults.standard.bool(for: .preferEnglishWords),
                !currentCandidates.contains(composedBuffer),
-               let index = englishCandidateIndex(parsedIsWord: parsedIsWord) {
+               let index = englishCandidateIndex(parsedIsWord: parsedIsWord,
+                                                 learned: prevString == self.termStr) {
                 currentCandidates.insert(composedBuffer, at: index)
                 englishCandidate = composedBuffer
 
@@ -100,13 +101,14 @@ class AvroKeyboardController: IMKInputController, @unchecked Sendable {
     }
 
     /// Where to offer `termStr` as typed, or nil if it isn't English.
-    /// Abbreviations ("DMRC") go first. Words ("meeting") go first unless the
-    /// term also reads as Bangla ("hate" → হাতে) and isn't a loanword that
-    /// AutoCorrect knows ("good" → গুড); then they go right after
-    private func englishCandidateIndex(parsedIsWord: Bool) -> Int? {
+    /// Abbreviations ("DMRC") and terms kept in English before (`learned`,
+    /// e.g. a company name committed with Esc) go first. Words ("meeting") go
+    /// first unless the term also reads as Bangla ("hate" → হাতে) and isn't a
+    /// loanword that AutoCorrect knows ("good" → গুড); then they go right after
+    private func englishCandidateIndex(parsedIsWord: Bool, learned: Bool) -> Int? {
         let isAbbreviation = termStr.count >= 2
             && termStr.allSatisfy { $0.isASCII && $0.isUppercase }
-        if isAbbreviation { return 0 }
+        if isAbbreviation || learned { return 0 }
 
         guard EnglishWords.shared.contains(termStr) else { return nil }
         let isLoanword = AutoCorrect.shared.find(termStr) != nil
@@ -346,6 +348,15 @@ class AvroKeyboardController: IMKInputController, @unchecked Sendable {
     @objc func cancelOperation(_ sender: Any?) {
         // Commit the raw typed text (e.g. "Hello") instead of a Bengali candidate
         currentClient?.insertText(composedBuffer, replacementRange: NSRange(location: NSNotFound, length: 0))
+
+        // Remember it, so a term the word lists don't know (a company name)
+        // is offered as typed next time
+        let defaults = UserDefaults.standard
+        if defaults.bool(for: .includeDictionary), defaults.bool(for: .preferEnglishWords),
+           !termStr.isEmpty {
+            CacheManager.shared.setString(termStr, forKey: termStr)
+            CacheManager.shared.persist()
+        }
 
         clearCompositionBuffer()
         currentCandidates.removeAll()
