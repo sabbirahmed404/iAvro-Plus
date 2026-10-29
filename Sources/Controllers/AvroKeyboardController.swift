@@ -101,18 +101,26 @@ class AvroKeyboardController: IMKInputController, @unchecked Sendable {
     }
 
     /// Where to offer `termStr` as typed, or nil if it isn't English.
-    /// Abbreviations ("DMRC") and terms kept in English before (`learned`,
-    /// e.g. a company name committed with Esc) go first. Words ("meeting") go
-    /// first unless the term also reads as Bangla ("hate" → হাতে) and isn't a
-    /// loanword that AutoCorrect knows ("good" → গুড); then they go right after
+    /// Numbers ("2026"), abbreviations ("DMRC") and terms kept in English
+    /// before (`learned`, e.g. a company name committed with Esc) go first.
+    /// Words ("meeting") go first unless the term also reads as Bangla
+    /// ("hate" → হাতে) and isn't a loanword that AutoCorrect knows
+    /// ("good" → গুড); then they go right after
     private func englishCandidateIndex(parsedIsWord: Bool, learned: Bool) -> Int? {
         let isAbbreviation = termStr.count >= 2
             && termStr.allSatisfy { $0.isASCII && $0.isUppercase }
-        if isAbbreviation || learned { return 0 }
+        if Self.isNumber(termStr) || isAbbreviation || learned { return 0 }
 
         guard EnglishWords.shared.contains(termStr) else { return nil }
         let isLoanword = AutoCorrect.shared.find(termStr) != nil
         return parsedIsWord && !isLoanword ? 1 : 0
+    }
+
+    /// Whether `text` is a number as typed ("2026", "3.5", "10:30"), which
+    /// Avro turns into Bangla digits
+    private static func isNumber(_ text: String) -> Bool {
+        guard let first = text.first, first.isASCII, first.isNumber else { return false }
+        return text.allSatisfy { $0.isASCII && ($0.isNumber || ".,:".contains($0)) }
     }
 
     internal override func updateComposition() {
@@ -277,9 +285,11 @@ class AvroKeyboardController: IMKInputController, @unchecked Sendable {
             return false
         }
 
-        // Number key selection (1-9) when custom panel is visible
+        // Number key selection (1-9) when custom panel is visible, except
+        // while typing a number ("2026"), where digits keep typing
         if CandidatesPanel.shared.useCustomPanel,
            CandidatesPanel.shared.isVisible,
+           !Self.isNumber(termStr),
            let digit = string.first, digit >= "1", digit <= "9" {
             let index = Int(String(digit))! - 1
             if index < currentCandidates.count {
