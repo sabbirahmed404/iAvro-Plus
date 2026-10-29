@@ -6,7 +6,8 @@ struct GeneralTab: View {
     @AppStorage("CandidatePanelType") private var candidatePanelType = 1
     @AppStorage("IncludeDictionary") private var includeDictionary = true
     @AppStorage("CommitNewLineOnEnter") private var commitNewLineOnEnter = false
-    @AppStorage("UseCustomCandidatePanel") private var useCustomCandidatePanel = false
+    @AppStorage("UseCustomCandidatePanel") private var useCustomCandidatePanel = true
+    @AppStorage("PreferEnglishWords") private var preferEnglishWords = true
 
     var body: some View {
         Form {
@@ -16,6 +17,9 @@ struct GeneralTab: View {
             }
 
             Toggle("Include Dictionary Suggestions", isOn: $includeDictionary)
+            // Needs the dictionary to tell Bangla words ("hate" → হাতে) from English ones
+            Toggle("Keep English words in English", isOn: $preferEnglishWords)
+                .disabled(!includeDictionary)
             Toggle("Commit new line on Enter/Return", isOn: $commitNewLineOnEnter)
 
             Section {

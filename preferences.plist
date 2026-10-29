@@ -8,5 +8,9 @@
 	<false/>
 	<key>IncludeDictionary</key>
 	<true/>
+	<key>PreferEnglishWords</key>
+	<true/>
+	<key>UseCustomCandidatePanel</key>
+	<true/>
 </dict>
 </plist>

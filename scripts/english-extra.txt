@@ -1,0 +1,60 @@
+# Words that ESDB doesn't have but Bangla chats use, merged into english.txt by
+# scripts/gen-english-words.sh. Lowercase letters only, any number per line.
+#
+# Leave out words that are also Banglish spellings of Bangla words, like
+# ai (এই), hoichoi (হৈচৈ), ide (ঈদে) and uri (উড়ি)
+
+# Chat
+ok lol omg lmao btw fyi idk tbh imo imho pls plz thx ty np brb gtg gn gm ttyl
+wtf asap bro bruh sis
+
+# Social media
+emoji emojis meme memes selfie selfies hashtag hashtags retweet unfollow
+unsubscribe dm dms inbox spam influencer influencers thumbnail thumbnails vlog
+vlogs vlogger vlogging youtuber youtubers livestream livestreaming podcast
+podcasts
+
+# Apps and services
+facebook instagram insta whatsapp viber skype webex tiktok snapchat pinterest
+reddit quora linkedin youtube spotify netflix hulu google gmail icloud onedrive
+gdrive dropbox chatgpt openai claude gemini copilot github gitlab bitbucket
+jira trello miro figma canva photoshop lightroom powerpoint appstore playstore
+fiverr upwork shopify woocommerce wordpress cpanel hostinger
+
+# Devices and hardware
+iphone ipad imac macbook android chromebook smartphone smartphones smartwatch
+smartwatches laptop laptops desktops airpods earbuds earphone earphones
+headphone headphones chargers powerbank webcam mic samsung xiaomi oppo vivo
+realme oneplus huawei nokia pixel intel amd nvidia ryzen cpu gpu ssd hdd rom
+usb hdmi bios chipset motherboard bluetooth wifi hotspot modem broadband
+ethernet
+
+# Internet and work
+online offline app apps website websites webpage webpages download downloads
+downloaded uploads uploaded installer uninstall backup backups sync synced
+screenshot screenshots screencast screenshare ringtone popup login logins
+logout signin signout signup username usernames passcode captcha otp cashback
+promo wishlist ecommerce tech techie techy startup startups saas paas iaas
+fintech edtech healthtech proptech agritech hackathon internship cv freelancer
+freelancers freelancing analytics chatbot chatbots bot bots dataset datasets
+gpt llm llms ml vpn ip lan dns cdn http https ssh ssl tls url urls
+
+# Software development
+readme repo repos git cloned diff rebase hotfix bugfix refactor refactoring deploy
+deployed deployment deployments changelog roadmap standup config configs env
+dotenv auth oauth jwt api apis sdk sdks cli gui coder coders dev devs devops
+sysadmin webdev webapp webapps webhook webhooks websocket backend frontend
+fullstack localhost opensource
+
+# File types
+html css scss sass js ts jsx tsx json yaml xml sql nosql pdf pdfs docx xlsx
+pptx csv txt jpg jpeg png gif gifs svg rar exe dmg apk
+
+# Languages, frameworks and tools
+javascript java kotlin golang scala perl php reactjs nextjs vue
+vuejs nuxt svelte nodejs deno django fastapi laravel symfony dotnet tailwind
+jquery redux graphql grpc orm prisma mysql postgres postgresql sqlite mongodb
+mongo redis firebase supabase dynamodb elasticsearch npm npx pnpm pip conda
+homebrew docker dockerfile kubernetes kubectl nginx apache aws gcp vercel
+netlify heroku cloudflare digitalocean linode linux ubuntu debian fedora macos
+ios ipados firefox vscode vim neovim emacs xcode zsh powershell

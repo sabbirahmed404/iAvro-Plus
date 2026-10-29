@@ -15,7 +15,9 @@ INSTALL_DIR="${HOME}/Library/Input Methods"
 
 SDK="$(xcrun --show-sdk-path)"
 MACOSX_DEPLOYMENT_TARGET="${MACOSX_DEPLOYMENT_TARGET:-13.0}"
-BUNDLE_ID="com.omicronlab.inputmethod.AvroKeyboard"
+# Must match the bundle ID macOS already has registered for the Avro input
+# source, or the IMK client never connects. Override with BUNDLE_ID=...
+BUNDLE_ID="${BUNDLE_ID:-app.aminul.inputmethod.AvroKeyboard}"
 
 echo "==> Cleaning ${BUILD_DIR}"
 rm -rf "${BUILD_DIR}"
@@ -92,6 +94,7 @@ cp "${ROOT}/database.db3" "${RESOURCES}/"
 cp "${ROOT}/regex.json" "${RESOURCES}/"
 cp "${ROOT}/data.json" "${RESOURCES}/"
 cp "${ROOT}/autodict.plist" "${RESOURCES}/"
+cp "${ROOT}/english.txt" "${RESOURCES}/"
 cp "${ROOT}/preferences.plist" "${RESOURCES}/"
 cp -R "${ROOT}/Credits.rtfd" "${RESOURCES}/"
 cp -R "${ROOT}/English.lproj" "${RESOURCES}/"

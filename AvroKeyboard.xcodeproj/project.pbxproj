@@ -34,6 +34,8 @@
 		AA00000100000001AABB000A /* AutoCorrect.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000200000001AABB000A /* AutoCorrect.swift */; };
 		AA00000100000001AABB000B /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000200000001AABB000B /* CacheManager.swift */; };
 		AA00000100000001AABB000C /* SuggestionEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000200000001AABB000C /* SuggestionEngine.swift */; };
+		AA00000100000001AABB0030 /* EnglishWords.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000200000001AABB0030 /* EnglishWords.swift */; };
+		AA00000100000001AABB0031 /* english.txt in Resources */ = {isa = PBXBuildFile; fileRef = AA00000200000001AABB0031 /* english.txt */; };
 		AA00000100000001AABB000D /* CandidatesPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000200000001AABB000D /* CandidatesPanel.swift */; };
 		AA00000100000001AABB000E /* AvroKeyboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000200000001AABB000E /* AvroKeyboardController.swift */; };
 		BB00000100000001CCDD0002 /* LevenshteinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB00000100000001CCDD0001 /* LevenshteinTests.swift */; };
@@ -92,6 +94,8 @@
 		AA00000200000001AABB000A /* AutoCorrect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoCorrect.swift; sourceTree = "<group>"; };
 		AA00000200000001AABB000B /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
 		AA00000200000001AABB000C /* SuggestionEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionEngine.swift; sourceTree = "<group>"; };
+		AA00000200000001AABB0030 /* EnglishWords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnglishWords.swift; sourceTree = "<group>"; };
+		AA00000200000001AABB0031 /* english.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = english.txt; sourceTree = "<group>"; };
 		AA00000200000001AABB000D /* CandidatesPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandidatesPanel.swift; sourceTree = "<group>"; };
 		AA00000200000001AABB000E /* AvroKeyboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvroKeyboardController.swift; sourceTree = "<group>"; };
 		BB00000100000001CCDD0001 /* LevenshteinTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevenshteinTests.swift; sourceTree = "<group>"; };
@@ -157,6 +161,7 @@
 				832F56401F994B6500432D7A /* Images.xcassets */,
 				356B186115A4434D00091215 /* Icons */,
 				3515102C184B99AE00D5059A /* autodict.plist */,
+				AA00000200000001AABB0031 /* english.txt */,
 				35F4DE72159404A3001EAC81 /* data.json */,
 				350CECE0159C45790009F0FE /* regex.json */,
 				350CECD9159C45790009F0FE /* database.db3 */,
@@ -240,6 +245,7 @@
 				AA00000200000001AABB000A /* AutoCorrect.swift */,
 				AA00000200000001AABB000B /* CacheManager.swift */,
 				AA00000200000001AABB000C /* SuggestionEngine.swift */,
+				AA00000200000001AABB0030 /* EnglishWords.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -366,6 +372,7 @@
 				832F56411F994B6500432D7A /* Images.xcassets in Resources */,
 				35895BFE1597706800F2A3ED /* MainMenu.nib in Resources */,
 				3515102D184B99AE00D5059A /* autodict.plist in Resources */,
+				AA00000100000001AABB0031 /* english.txt in Resources */,
 				350CECE5159C45790009F0FE /* database.db3 in Resources */,
 				350CECE9159C45790009F0FE /* regex.json in Resources */,
 				3578E8FD15A26EC100C1FB8E /* Credits.rtfd in Resources */,
@@ -394,6 +401,7 @@
 				AA00000100000001AABB000A /* AutoCorrect.swift in Sources */,
 				AA00000100000001AABB000B /* CacheManager.swift in Sources */,
 				AA00000100000001AABB000C /* SuggestionEngine.swift in Sources */,
+				AA00000100000001AABB0030 /* EnglishWords.swift in Sources */,
 				AA00000100000001AABB000D /* CandidatesPanel.swift in Sources */,
 				AA00000100000001AABB000E /* AvroKeyboardController.swift in Sources */,
 				AA00000100000001AABB0011 /* PreferencesView.swift in Sources */,

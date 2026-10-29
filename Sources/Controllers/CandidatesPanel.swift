@@ -67,7 +67,8 @@ final class CandidatesPanel {
         useCustomPanel ? panel.isVisible : (imkCandidates?.isVisible() ?? false)
     }
 
-    var panelType: Int { UserDefaults.standard.integer(for: .candidatePanelType) }
+    // Type of the live IMK panel, so the controller can detect a changed preference and reallocate
+    var panelType: Int { Int(imkCandidates?.panelType() ?? 0) }
 
     var selectedCandidate: String? {
         guard useCustomPanel else { return nil }
@@ -138,9 +139,9 @@ final class CandidatesPanel {
 
     func updateCandidates(_ candidates: [String]) {
         viewModel.candidates = candidates
-        if viewModel.selectedIndex >= candidates.count {
-            viewModel.selectedIndex = 0
-        }
+        // New candidates start at the top (the controller then reselects a
+        // remembered pick); a stale index would commit the wrong word on space
+        viewModel.selectedIndex = 0
     }
 
     // MARK: - IMK Backend Methods
@@ -218,6 +219,9 @@ final class CandidatesPanel {
     func hide() {
         if useCustomPanel {
             panel.orderOut(nil)
+            // Clear stale candidates so selectedCandidate is nil once hidden;
+            // otherwise the next space re-commits the last word
+            viewModel.candidates = []
             viewModel.selectedIndex = 0
         } else {
             imkCandidates?.hide()

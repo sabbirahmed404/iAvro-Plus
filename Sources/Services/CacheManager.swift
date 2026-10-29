@@ -12,7 +12,7 @@ final class CacheManager {
     private static let phoneticCacheCapacity = 512
     private var recentBaseCache: [String: [String]]
 
-    private static var sharedFolderURL: URL {
+    static var sharedFolderURL: URL {
         guard let appSupport = FileManager.default.urls(for: .applicationSupportDirectory,
                                                          in: .userDomainMask).first else {
             fatalError("Application Support directory not found")
