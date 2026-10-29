@@ -14,10 +14,8 @@ URL="https://app.aspell.net/create?max_size=35&spelling=US&spelling=GBs&max_vari
 # slip past the runtime dictionary check (e.g. "or" → ওর, "dim" → ডিম)
 BANGLISH="at dim dos hum nil or ore pate"
 
-# Common words in Bangla chats that ESDB doesn't have
-EXTRA="ok online offline website websites app apps laptop wifi download downloads
-login logout inbox selfie bro lol emoji youtube facebook google gmail whatsapp
-instagram github linkedin tiktok iphone android"
+# Chat and tech words that ESDB doesn't have
+EXTRA="${ROOT}/scripts/english-extra.txt"
 
 RAW="$(curl -fsSL "${URL}")"
 
@@ -27,9 +25,9 @@ RAW="$(curl -fsSL "${URL}")"
   echo "#"
   awk '/^---$/{exit} {print "# " $0}' <<<"${RAW}" | sed 's/ *$//'
   {
-    awk '/^---$/{f=1; next} f' <<<"${RAW}" | grep -E '^[a-z]{2,}$'
-    tr ' ' '\n' <<<"${EXTRA}" | grep .
-  } | grep -vxF -f <(tr ' ' '\n' <<<"${BANGLISH}") | sort -u
+    awk '/^---$/{f=1; next} f' <<<"${RAW}"
+    grep -v '^#' "${EXTRA}" | tr -s ' ' '\n'
+  } | grep -E '^[a-z]{2,}$' | grep -vxF -f <(tr ' ' '\n' <<<"${BANGLISH}") | sort -u
 } > "${OUT}"
 
 echo "Wrote $(grep -vc '^#' "${OUT}") words to ${OUT}"
