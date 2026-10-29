@@ -81,14 +81,10 @@ class AvroKeyboardController: IMKInputController, @unchecked Sendable {
                 }
             }
 
-            // English word ("meeting"): offer it as typed. It goes first unless the
-            // term also reads as Bangla ("hate" → হাতে) and isn't a loanword that
-            // AutoCorrect knows ("good" → গুড); then it goes right after
+            // English word or abbreviation: offer it as typed
             if useDict, UserDefaults.standard.bool(for: .preferEnglishWords),
-               EnglishWords.shared.contains(self.termStr),
-               !currentCandidates.contains(composedBuffer) {
-                let isLoanword = AutoCorrect.shared.find(self.termStr) != nil
-                let index = parsedIsWord && !isLoanword ? 1 : 0
+               !currentCandidates.contains(composedBuffer),
+               let index = englishCandidateIndex(parsedIsWord: parsedIsWord) {
                 currentCandidates.insert(composedBuffer, at: index)
                 englishCandidate = composedBuffer
 
@@ -101,6 +97,20 @@ class AvroKeyboardController: IMKInputController, @unchecked Sendable {
         } else {
             currentCandidates.append(self.prefixStr)
         }
+    }
+
+    /// Where to offer `termStr` as typed, or nil if it isn't English.
+    /// Abbreviations ("DMRC") go first. Words ("meeting") go first unless the
+    /// term also reads as Bangla ("hate" → হাতে) and isn't a loanword that
+    /// AutoCorrect knows ("good" → গুড); then they go right after
+    private func englishCandidateIndex(parsedIsWord: Bool) -> Int? {
+        let isAbbreviation = termStr.count >= 2
+            && termStr.allSatisfy { $0.isASCII && $0.isUppercase }
+        if isAbbreviation { return 0 }
+
+        guard EnglishWords.shared.contains(termStr) else { return nil }
+        let isLoanword = AutoCorrect.shared.find(termStr) != nil
+        return parsedIsWord && !isLoanword ? 1 : 0
     }
 
     internal override func updateComposition() {
