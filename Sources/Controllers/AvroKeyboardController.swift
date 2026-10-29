@@ -303,16 +303,20 @@ class AvroKeyboardController: IMKInputController, @unchecked Sendable {
     }
 
     @objc func cancelOperation(_ sender: Any?) {
+        // Commit the raw typed text (e.g. "Hello") instead of a Bengali candidate
+        currentClient?.insertText(composedBuffer, replacementRange: NSRange(location: NSNotFound, length: 0))
+
         clearCompositionBuffer()
         currentCandidates.removeAll()
         CandidatesPanel.shared.hide()
+        usedArrowKeys = false
     }
 
     @objc override func didCommand(by aSelector: Selector, client sender: Any!) -> Bool {
         self.currentClient = sender as? (any IMKTextInput)
         guard !composedBuffer.isEmpty else { return false }
 
-        // Escape: cancel composition (both modes)
+        // Escape: commit raw English text (both modes)
         if aSelector == #selector(cancelOperation(_:)) {
             cancelOperation(sender)
             return true
