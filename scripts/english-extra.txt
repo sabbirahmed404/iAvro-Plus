@@ -2,11 +2,18 @@
 # scripts/gen-english-words.sh. Lowercase letters only, any number per line.
 #
 # Leave out words that are also Banglish spellings of Bangla words, like
-# ai (এই), hoichoi (হৈচৈ), ide (ঈদে) and uri (উড়ি)
+# ai (এই), haha (হাহা), hoichoi (হৈচৈ), ide (ঈদে) and uri (উড়ি)
 
 # Chat
-ok lol omg lmao btw fyi idk tbh imo imho pls plz thx ty np brb gtg gn gm ttyl
-wtf asap bro bruh sis
+ok lol omg lmao lmfao rofl btw fyi idk ikr tbh imo imho smh irl afaik tldr nvm
+pls plz thx ty np brb gtg gn gm ttyl wtf asap xd hmm umm oops yeah yep yup nope
+yay congrats bday hbd gf bf bestie fam vibe vibes sus noob coz cuz bcoz becoz
+tho thru bro bruh sis
+
+# Contractions, as typed without the apostrophe
+dont im ive youre thats isnt didnt doesnt wasnt werent arent couldnt wouldnt
+shouldnt havent hasnt hadnt theyre aint whats youve weve theyve youll theyll
+itll gotta
 
 # Social media
 emoji emojis meme memes selfie selfies hashtag hashtags retweet unfollow

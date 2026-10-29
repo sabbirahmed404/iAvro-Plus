@@ -657,6 +657,7 @@ aerosols
 aerospace
 aesthetic
 aesthetically
+afaik
 afar
 affable
 affably
@@ -719,6 +720,8 @@ aforementioned
 aforesaid
 afraid
 afresh
+african
+africans
 after
 aftereffect
 aftereffects
@@ -820,6 +823,7 @@ aiming
 aimless
 aimlessly
 aims
+aint
 air
 airborne
 aircraft
@@ -1093,6 +1097,10 @@ amendments
 amends
 amenities
 amenity
+american
+americanism
+americanisms
+americans
 amethyst
 amethysts
 amiable
@@ -1593,6 +1601,8 @@ apps
 appstore
 apricot
 apricots
+april
+aprils
 apron
 aprons
 apt
@@ -1673,6 +1683,7 @@ area
 areas
 arena
 arenas
+arent
 ares
 arguable
 arguably
@@ -1838,6 +1849,8 @@ ashes
 ashore
 ashtray
 ashtrays
+asian
+asians
 aside
 asides
 ask
@@ -2124,6 +2137,7 @@ augments
 august
 auguster
 augustest
+augusts
 aunt
 aunts
 aura
@@ -2730,6 +2744,8 @@ bayous
 bays
 bazaar
 bazaars
+bcoz
+bday
 be
 beach
 beached
@@ -2800,6 +2816,7 @@ beckons
 become
 becomes
 becoming
+becoz
 bed
 bedbug
 bedbugs
@@ -3042,6 +3059,7 @@ best
 bested
 bestial
 bestiality
+bestie
 besting
 bestow
 bestowed
@@ -3085,6 +3103,7 @@ bewitched
 bewitches
 bewitching
 beyond
+bf
 bias
 biased
 biases
@@ -4090,6 +4109,7 @@ bristled
 bristles
 bristling
 britches
+british
 brittle
 brittler
 brittlest
@@ -5123,6 +5143,8 @@ catfishes
 cathedral
 cathedrals
 catholic
+catholicism
+catholics
 catnap
 catnapped
 catnapping
@@ -5223,6 +5245,7 @@ cellos
 cells
 cellular
 cellulose
+celsius
 cement
 cemented
 cementing
@@ -5579,6 +5602,8 @@ chews
 chewy
 chi
 chic
+chicano
+chicanos
 chicer
 chicest
 chick
@@ -5729,6 +5754,11 @@ christened
 christening
 christenings
 christens
+christian
+christianity
+christians
+christmas
+christmases
 chrome
 chromebook
 chromed
@@ -7031,6 +7061,7 @@ conglomerate
 conglomerated
 conglomerates
 conglomerating
+congrats
 congratulate
 congratulated
 congratulates
@@ -7715,6 +7746,7 @@ coughed
 coughing
 coughs
 could
+couldnt
 council
 councillor
 councillors
@@ -7861,6 +7893,7 @@ coyer
 coyest
 coyote
 coyotes
+coz
 cozier
 cozies
 coziest
@@ -8460,6 +8493,7 @@ cutthroat
 cutthroats
 cutting
 cuttings
+cuz
 cv
 cyanide
 cybernetics
@@ -8772,6 +8806,8 @@ deceive
 deceived
 deceives
 deceiving
+december
+decembers
 decencies
 decency
 decent
@@ -9632,6 +9668,7 @@ diction
 dictionaries
 dictionary
 did
+didnt
 die
 died
 dies
@@ -10517,6 +10554,7 @@ doe
 doer
 doers
 does
+doesnt
 dog
 dogged
 doggedly
@@ -10592,6 +10630,7 @@ donkeys
 donor
 donors
 dons
+dont
 donut
 donuts
 doodle
@@ -11057,6 +11096,7 @@ dustpan
 dustpans
 dusts
 dusty
+dutch
 duties
 dutiful
 dutifully
@@ -11165,9 +11205,11 @@ easiest
 easily
 easing
 east
+easter
 easterlies
 easterly
 eastern
+easters
 eastward
 easy
 easygoing
@@ -11800,6 +11842,9 @@ engineered
 engineering
 engineers
 engines
+england
+english
+englishes
 engrave
 engraved
 engraver
@@ -12168,6 +12213,8 @@ escort
 escorted
 escorting
 escorts
+eskimo
+eskimos
 esophagi
 esophagus
 esoteric
@@ -12239,6 +12286,9 @@ eulogy
 euphemism
 euphemisms
 eureka
+europe
+european
+europeans
 euthanasia
 evacuate
 evacuated
@@ -12866,6 +12916,7 @@ faggot
 faggots
 fagot
 fagots
+fahrenheit
 fail
 failed
 failing
@@ -12930,6 +12981,7 @@ falter
 faltered
 faltering
 falters
+fam
 fame
 famed
 familiar
@@ -13126,6 +13178,8 @@ feature
 featured
 features
 featuring
+februaries
+february
 feces
 fed
 federal
@@ -14410,6 +14464,7 @@ freighter
 freighters
 freighting
 freights
+french
 frenzied
 frenzies
 frenzy
@@ -14444,6 +14499,8 @@ friar
 friars
 friction
 frictions
+friday
+fridays
 fried
 friend
 friended
@@ -15077,6 +15134,7 @@ geyser
 geysered
 geysering
 geysers
+gf
 ghastlier
 ghastliest
 ghastly
@@ -15469,6 +15527,7 @@ gossiped
 gossiping
 gossips
 got
+gotta
 gotten
 gouge
 gouged
@@ -15686,6 +15745,8 @@ greediest
 greedily
 greediness
 greedy
+greek
+greeks
 green
 greenback
 greenbacks
@@ -16091,6 +16152,7 @@ hacksaws
 had
 haddock
 haddocks
+hadnt
 haemoglobin
 haemophilia
 haemorrhage
@@ -16141,6 +16203,8 @@ hallmark
 hallmarked
 hallmarking
 hallmarks
+halloween
+halloweens
 halls
 hallucination
 hallucinations
@@ -16371,6 +16435,7 @@ hashes
 hashing
 hashtag
 hashtags
+hasnt
 hassle
 hassled
 hassles
@@ -16423,6 +16488,7 @@ haunts
 have
 haven
 havens
+havent
 haves
 having
 havoc
@@ -16451,6 +16517,7 @@ hazier
 haziest
 hazing
 hazy
+hbd
 hdd
 hdmi
 he
@@ -16564,6 +16631,8 @@ heaving
 heavy
 heavyweight
 heavyweights
+hebrew
+hebrews
 heckle
 heckled
 heckler
@@ -16831,6 +16900,8 @@ hired
 hires
 hiring
 his
+hispanic
+hispanics
 hiss
 hissed
 hisses
@@ -16862,6 +16933,7 @@ hive
 hived
 hives
 hiving
+hmm
 ho
 hoard
 hoarded
@@ -17575,6 +17647,7 @@ ignores
 ignoring
 iguana
 iguanas
+ikr
 ilk
 ill
 illegal
@@ -17610,6 +17683,7 @@ illustrative
 illustrator
 illustrators
 illustrious
+im
 imac
 image
 imaged
@@ -18140,6 +18214,8 @@ index
 indexed
 indexes
 indexing
+indian
+indians
 indicate
 indicated
 indicates
@@ -19139,6 +19215,7 @@ irk
 irked
 irking
 irks
+irl
 iron
 ironed
 ironic
@@ -19198,6 +19275,7 @@ islanders
 islands
 isle
 isles
+isnt
 isolate
 isolated
 isolates
@@ -19245,8 +19323,10 @@ itinerant
 itinerants
 itineraries
 itinerary
+itll
 its
 itself
+ive
 ivies
 ivories
 ivory
@@ -19308,6 +19388,8 @@ jangles
 jangling
 janitor
 janitors
+januaries
+january
 jar
 jargon
 jarred
@@ -19402,6 +19484,7 @@ jettisoned
 jettisoning
 jettisons
 jetty
+jew
 jewel
 jeweled
 jeweler
@@ -19416,6 +19499,8 @@ jewelling
 jewelries
 jewelry
 jewels
+jewish
+jews
 jibe
 jibed
 jibes
@@ -19466,6 +19551,7 @@ jogger
 joggers
 jogging
 jogs
+john
 join
 joined
 joining
@@ -19531,6 +19617,7 @@ jubilant
 jubilation
 jubilee
 jubilees
+judaism
 judge
 judged
 judgement
@@ -19566,6 +19653,8 @@ juicier
 juiciest
 juicing
 juicy
+julies
+july
 jumble
 jumbled
 jumbles
@@ -19585,6 +19674,8 @@ junction
 junctions
 juncture
 junctures
+june
+junes
 jungle
 jungles
 junior
@@ -20112,6 +20203,8 @@ lathering
 lathers
 lathes
 lathing
+latin
+latins
 latitude
 latitudes
 latrine
@@ -20748,6 +20841,7 @@ llamas
 llm
 llms
 lmao
+lmfao
 load
 loadable
 loaded
@@ -21564,6 +21658,9 @@ marvelling
 marvellous
 marvelous
 marvels
+marxism
+marxist
+marxists
 mas
 mascara
 mascaraed
@@ -21729,6 +21826,7 @@ mayhem
 mayonnaise
 mayor
 mayors
+mays
 maze
 mazes
 me
@@ -22418,6 +22516,7 @@ mistakenly
 mistakes
 mistaking
 misted
+mister
 mistier
 mistiest
 misting
@@ -22610,6 +22709,8 @@ monasteries
 monastery
 monastic
 monastics
+monday
+mondays
 monetarism
 monetary
 money
@@ -22902,6 +23003,9 @@ mower
 mowers
 mowing
 mows
+mr
+mrs
+ms
 mu
 much
 muck
@@ -23264,6 +23368,8 @@ navigators
 navy
 nay
 nays
+nazi
+nazis
 near
 nearby
 neared
@@ -23631,6 +23737,7 @@ nonstandard
 nonstop
 nontrivial
 nonviolence
+noob
 noodle
 noodled
 noodles
@@ -23640,6 +23747,7 @@ nooks
 noon
 noose
 nooses
+nope
 nor
 norm
 normal
@@ -23728,6 +23836,8 @@ novelists
 novels
 novelties
 novelty
+november
+novembers
 novice
 novices
 now
@@ -23824,6 +23934,7 @@ nuzzled
 nuzzles
 nuzzling
 nvidia
+nvm
 nylon
 nymph
 nymphs
@@ -23990,6 +24101,8 @@ octagons
 octal
 octave
 octaves
+october
+octobers
 octopus
 octopuses
 ocular
@@ -24148,6 +24261,7 @@ onuses
 onward
 onwards
 oodles
+oops
 ooze
 oozed
 oozes
@@ -25221,6 +25335,8 @@ passions
 passive
 passively
 passives
+passover
+passovers
 passport
 passports
 password
@@ -27637,6 +27753,7 @@ protein
 proteins
 protest
 protestant
+protestants
 protested
 protesters
 protesting
@@ -30296,6 +30413,7 @@ rodeos
 rods
 roe
 roes
+rofl
 rogue
 rogues
 roguish
@@ -30597,6 +30715,7 @@ rutting
 rye
 ryzen
 saas
+sabbath
 sabbatical
 saber
 sabers
@@ -30829,6 +30948,7 @@ sassier
 sassiest
 sassy
 sat
+satan
 satanic
 satchel
 satchels
@@ -30861,6 +30981,8 @@ saturated
 saturates
 saturating
 saturation
+saturday
+saturdays
 sauce
 sauced
 saucepan
@@ -31133,6 +31255,7 @@ scorns
 scorpion
 scorpions
 scotch
+scotches
 scoundrel
 scoundrels
 scour
@@ -31557,6 +31680,8 @@ separation
 separations
 separator
 separators
+september
+septembers
 sepulcher
 sepulchered
 sepulchering
@@ -31966,6 +32091,7 @@ shoulder
 shouldered
 shouldering
 shoulders
+shouldnt
 shout
 shouted
 shouting
@@ -32763,6 +32889,7 @@ smelt
 smelted
 smelting
 smelts
+smh
 smidgen
 smidgens
 smile
@@ -34940,6 +35067,8 @@ sunburning
 sunburns
 sundae
 sundaes
+sunday
+sundays
 sundial
 sundials
 sundown
@@ -35140,6 +35269,7 @@ survives
 surviving
 survivor
 survivors
+sus
 susceptible
 suspect
 suspected
@@ -35670,6 +35800,8 @@ taunt
 taunted
 taunting
 taunts
+taurus
+tauruses
 taut
 tauter
 tautest
@@ -36021,6 +36153,7 @@ thatched
 thatcher
 thatches
 thatching
+thats
 thaw
 thawed
 thawing
@@ -36093,6 +36226,9 @@ theses
 thesis
 theta
 they
+theyll
+theyre
+theyve
 thick
 thicken
 thickened
@@ -36144,6 +36280,7 @@ thirty
 this
 thistle
 thistles
+tho
 thong
 thongs
 thorn
@@ -36240,6 +36377,7 @@ throwbacks
 throwing
 thrown
 throws
+thru
 thrust
 thrusting
 thrusts
@@ -36271,6 +36409,8 @@ thunders
 thunderstorm
 thunderstorms
 thunderstruck
+thursday
+thursdays
 thus
 thwart
 thwarted
@@ -36452,6 +36592,7 @@ titter
 tittered
 tittering
 titters
+tldr
 tls
 to
 toad
@@ -37257,6 +37398,8 @@ tuck
 tucked
 tucking
 tucks
+tuesday
+tuesdays
 tuft
 tufted
 tufting
@@ -37495,6 +37638,7 @@ ultrasonic
 ultraviolet
 umbrella
 umbrellas
+umm
 umpire
 umpired
 umpires
@@ -38574,7 +38718,9 @@ viaduct
 viaducts
 vial
 vials
+vibe
 viber
+vibes
 vibrant
 vibrate
 vibrated
@@ -39067,6 +39213,7 @@ washout
 washouts
 washroom
 washrooms
+wasnt
 wasp
 wasps
 wastage
@@ -39232,6 +39379,8 @@ wedged
 wedges
 wedging
 wedlock
+wednesday
+wednesdays
 weds
 wee
 weed
@@ -39304,6 +39453,7 @@ welts
 went
 wept
 were
+werent
 werewolf
 werewolves
 west
@@ -39317,6 +39467,7 @@ wets
 wetter
 wettest
 wetting
+weve
 whack
 whacked
 whacking
@@ -39331,6 +39482,7 @@ wharf
 wharves
 what
 whatever
+whats
 whatsapp
 whatsoever
 wheat
@@ -39856,6 +40008,7 @@ worthless
 worthwhile
 worthy
 would
+wouldnt
 wound
 wounded
 wounding
@@ -39968,9 +40121,12 @@ wryer
 wryest
 wtf
 xcode
+xd
 xenophobia
 xiaomi
 xlsx
+xmas
+xmases
 xml
 xylophone
 xylophones
@@ -39987,6 +40143,8 @@ yaml
 yams
 yank
 yanked
+yankee
+yankees
 yanking
 yanks
 yap
@@ -40003,6 +40161,8 @@ yawn
 yawned
 yawning
 yawns
+yay
+yeah
 year
 yearlies
 yearling
@@ -40032,6 +40192,7 @@ yelping
 yelps
 yen
 yens
+yep
 yes
 yeses
 yessed
@@ -40042,6 +40203,7 @@ yet
 yeti
 yew
 yews
+yiddish
 yield
 yielded
 yielding
@@ -40067,12 +40229,14 @@ yolk
 yolks
 yonder
 you
+youll
 young
 younger
 youngest
 youngster
 youngsters
 your
+youre
 yours
 yourself
 yourselves
@@ -40082,11 +40246,13 @@ youths
 youtube
 youtuber
 youtubers
+youve
 yowl
 yowled
 yowling
 yowls
 yuk
+yup
 zanier
 zanies
 zaniest
