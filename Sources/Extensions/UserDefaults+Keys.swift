@@ -6,6 +6,7 @@ extension UserDefaults {
         case candidatePanelType = "CandidatePanelType"
         case commitNewLineOnEnter = "CommitNewLineOnEnter"
         case useCustomCandidatePanel = "UseCustomCandidatePanel"
+        case preferEnglishWords = "PreferEnglishWords"
     }
 
     func bool(for key: Key) -> Bool { bool(forKey: key.rawValue) }

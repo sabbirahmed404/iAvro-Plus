@@ -7,7 +7,13 @@ final class SuggestionEngine {
     private init() {}
 
     func getList(_ term: String) -> [String] {
-        guard !term.isEmpty else { return [] }
+        suggestions(for: term).list
+    }
+
+    /// Suggestions for `term`, and whether its phonetic parse is itself one of
+    /// them, i.e. the term reads as a real Bangla word ("hate" → হাতে)
+    func suggestions(for term: String) -> (list: [String], parsedIsWord: Bool) {
+        guard !term.isEmpty else { return ([], false) }
 
         var suggestions: [String] = []
         var suggestionSet: Set<String> = []
@@ -95,11 +101,12 @@ final class SuggestionEngine {
             }
         }
 
-        if !suggestionSet.contains(parsedString) {
+        let parsedIsWord = suggestionSet.contains(parsedString)
+        if !parsedIsWord {
             suggestions.append(parsedString)
         }
 
-        return suggestions
+        return (suggestions, parsedIsWord)
     }
 
     private static let karSet: Set<Character> = [

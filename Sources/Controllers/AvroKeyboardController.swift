@@ -13,6 +13,7 @@ class AvroKeyboardController: IMKInputController, @unchecked Sendable {
     private var prefixStr: String = ""
     private var termStr: String = ""
     private var suffixStr: String = ""
+    private var englishCandidate: String?
     private var usedArrowKeys = false
 
     @objc override init!(server: IMKServer!, delegate: Any!, client inputClient: Any!) {
@@ -35,6 +36,7 @@ class AvroKeyboardController: IMKInputController, @unchecked Sendable {
 
     private func findCurrentCandidates() {
         currentCandidates.removeAll()
+        englishCandidate = nil
         guard !composedBuffer.isEmpty else { return }
 
         let regexPattern = "(^(?::`|\\.`|[-\\]\\\\~!@#&*()_=+\\[{}'\";<>/?|.,])*?(?=(?:,{2,}))|^(?::`|\\.`|[-\\]\\\\~!@#&*()_=+\\[{}'\";<>/?|.,])*)(.*?(?:,,)*)((?::`|\\.`|[-\\]\\\\~!@#&*()_=+\\[{}'\";<>/?|.,])*$)"
@@ -52,7 +54,7 @@ class AvroKeyboardController: IMKInputController, @unchecked Sendable {
         self.termStr = nsString.substring(with: match.range(at: 2))
         self.suffixStr = AvroParser.shared.parse(nsString.substring(with: match.range(at: 3)))
 
-        let suggestions = SuggestionEngine.shared.getList(self.termStr)
+        let (suggestions, parsedIsWord) = SuggestionEngine.shared.suggestions(for: self.termStr)
         let useDict = UserDefaults.standard.bool(for: .includeDictionary)
 
         if !suggestions.isEmpty {
@@ -76,6 +78,24 @@ class AvroKeyboardController: IMKInputController, @unchecked Sendable {
             if composedBuffer != self.termStr && useDict {
                 if let smiley = AutoCorrect.shared.find(composedBuffer) {
                     currentCandidates.insert(smiley, at: 0)
+                }
+            }
+
+            // English word ("meeting"): offer it as typed. It goes first unless the
+            // term also reads as Bangla ("hate" → হাতে) and isn't a loanword that
+            // AutoCorrect knows ("good" → গুড); then it goes right after
+            if useDict, UserDefaults.standard.bool(for: .preferEnglishWords),
+               EnglishWords.shared.contains(self.termStr),
+               !currentCandidates.contains(composedBuffer) {
+                let isLoanword = AutoCorrect.shared.find(self.termStr) != nil
+                let index = parsedIsWord && !isLoanword ? 1 : 0
+                currentCandidates.insert(composedBuffer, at: index)
+                englishCandidate = composedBuffer
+
+                if prevString == self.termStr {
+                    prevSelected = index
+                } else if prevSelected >= index {
+                    prevSelected += 1
                 }
             }
         } else {
@@ -142,29 +162,38 @@ class AvroKeyboardController: IMKInputController, @unchecked Sendable {
 
     @objc override func candidateSelectionChanged(_ candidateString: NSAttributedString!) {
         guard !CandidatesPanel.shared.useCustomPanel, let candidateString else { return }
-        if UserDefaults.standard.bool(for: .includeDictionary) {
-            if !termStr.isEmpty {
-                let isFirst = candidateString.string == currentCandidates.first
-                if !(isFirst && prevSelected == -1) {
-                    let prefLen = (prefixStr as NSString).length
-                    let sufLen = (suffixStr as NSString).length
-                    let range = NSRange(
-                        location: prefLen,
-                        length: candidateString.length - (prefLen + sufLen)
-                    )
-                    CacheManager.shared.setString(
-                        (candidateString.string as NSString).substring(with: range),
-                        forKey: termStr
-                    )
-
-                    if let tmpArray = CacheManager.shared.base(forKey: candidateString.string),
-                       tmpArray.count > 1 {
-                        CacheManager.shared.setString(tmpArray[1], forKey: tmpArray[0])
-                    }
-                }
-            }
-        }
+        rememberSelection(candidateString.string)
         selectedCandidateIndex = currentCandidates.firstIndex(of: candidateString.string) ?? 0
+    }
+
+    /// Remember the candidate chosen for `termStr` so it's preselected next time
+    private func rememberSelection(_ candidate: String) {
+        guard UserDefaults.standard.bool(for: .includeDictionary), !termStr.isEmpty else { return }
+        let isFirst = candidate == currentCandidates.first
+        guard !(isFirst && prevSelected == -1) else { return }
+
+        // The English candidate is the raw typed text, not prefix + word + suffix
+        if candidate == englishCandidate {
+            CacheManager.shared.setString(termStr, forKey: termStr)
+            return
+        }
+
+        let prefLen = (prefixStr as NSString).length
+        let sufLen = (suffixStr as NSString).length
+        let candidateNS = candidate as NSString
+        let range = NSRange(
+            location: prefLen,
+            length: candidateNS.length - (prefLen + sufLen)
+        )
+        CacheManager.shared.setString(
+            candidateNS.substring(with: range),
+            forKey: termStr
+        )
+
+        if let tmpArray = CacheManager.shared.base(forKey: candidate),
+           tmpArray.count > 1 {
+            CacheManager.shared.setString(tmpArray[1], forKey: tmpArray[0])
+        }
     }
 
     @objc override func candidateSelected(_ candidateString: NSAttributedString!) {
@@ -242,6 +271,8 @@ class AvroKeyboardController: IMKInputController, @unchecked Sendable {
            let digit = string.first, digit >= "1", digit <= "9" {
             let index = Int(String(digit))! - 1
             if index < currentCandidates.count {
+                // Remember number-key picks too, like arrow-key ones
+                rememberSelection(currentCandidates[index])
                 commitCandidate(currentCandidates[index])
                 return true
             }
@@ -373,29 +404,7 @@ class AvroKeyboardController: IMKInputController, @unchecked Sendable {
 
 extension AvroKeyboardController: CandidatePanelDelegate {
     func candidateSelectionChanged(to candidate: String, at index: Int) {
-        if UserDefaults.standard.bool(for: .includeDictionary) {
-            if !termStr.isEmpty {
-                let isFirst = candidate == currentCandidates.first
-                if !(isFirst && prevSelected == -1) {
-                    let prefLen = (prefixStr as NSString).length
-                    let sufLen = (suffixStr as NSString).length
-                    let candidateNS = candidate as NSString
-                    let range = NSRange(
-                        location: prefLen,
-                        length: candidateNS.length - (prefLen + sufLen)
-                    )
-                    CacheManager.shared.setString(
-                        candidateNS.substring(with: range),
-                        forKey: termStr
-                    )
-
-                    if let tmpArray = CacheManager.shared.base(forKey: candidate),
-                       tmpArray.count > 1 {
-                        CacheManager.shared.setString(tmpArray[1], forKey: tmpArray[0])
-                    }
-                }
-            }
-        }
+        rememberSelection(candidate)
         selectedCandidateIndex = index
     }
 
