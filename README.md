@@ -17,7 +17,7 @@ Bangla written today is full of English: names, brands, tech words, abbreviation
 | `2026`, `12.5`, `10:30` | 2026, then ২০২৬ | A number |
 | `good`, `logo` | good | English loanword Avro already knows |
 | `hate`, `rate` | হাতে, then hate | Also a real Bangla word, so Bangla stays first |
-| `ami`, `kemon` | আমি | Plain Bangla, unchanged |
+| `ami`, `kemon` | আমি | Plain Bangla; ami is still offered last |
 
 Space commits the first suggestion.
 
@@ -27,6 +27,7 @@ Space commits the first suggestion.
 - **Abbreviations stay English.** Any all-caps word of two or more letters.
 - **Numbers stay English.** `2026` gives 2026 first and ২০২৬ second. While you type a number, digit keys keep typing instead of picking a candidate.
 - **Esc commits exactly what you typed, and remembers it.** For anything the lists miss, like a company name, press Esc once; from then on that word is offered as typed, first. Stock iAvro throws the word away.
+- **What you typed is always in the panel.** A word no list knows, like `pathao` or `bkash`, is offered as typed, last. Pick it once, with the arrow keys or a number key, and it comes first from then on, as with Esc.
 - **Remembers your picks.** Choose a candidate once, with the arrow keys or a number key, and it's preselected next time.
 - **Custom candidate panel by default**, with fixes: Space no longer re-commits the previous word, and the selection no longer carries over to the next keystroke.
 - **One switch** turns the English behaviour off: Preferences → General → *Keep English words in English*.

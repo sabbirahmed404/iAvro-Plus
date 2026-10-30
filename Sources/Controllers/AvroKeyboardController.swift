@@ -81,15 +81,17 @@ class AvroKeyboardController: IMKInputController, @unchecked Sendable {
                 }
             }
 
-            // English word or abbreviation: offer it as typed
+            // Offer the text as typed: English words, abbreviations and
+            // numbers near the top, anything else ("ami") last
             if useDict, UserDefaults.standard.bool(for: .preferEnglishWords),
-               !currentCandidates.contains(composedBuffer),
-               let index = englishCandidateIndex(parsedIsWord: parsedIsWord,
-                                                 learned: prevString == self.termStr) {
+               !currentCandidates.contains(composedBuffer) {
+                let learned = prevString == self.termStr
+                let index = englishCandidateIndex(parsedIsWord: parsedIsWord, learned: learned)
+                    ?? currentCandidates.count
                 currentCandidates.insert(composedBuffer, at: index)
                 englishCandidate = composedBuffer
 
-                if prevString == self.termStr {
+                if learned {
                     prevSelected = index
                 } else if prevSelected >= index {
                     prevSelected += 1
@@ -100,7 +102,8 @@ class AvroKeyboardController: IMKInputController, @unchecked Sendable {
         }
     }
 
-    /// Where to offer `termStr` as typed, or nil if it isn't English.
+    /// Where to offer `termStr` as typed, or nil if it isn't English (it
+    /// then goes last).
     /// Numbers ("2026"), abbreviations ("DMRC") and terms kept in English
     /// before (`learned`, e.g. a company name committed with Esc) go first.
     /// Words ("meeting") go first unless the term also reads as Bangla
